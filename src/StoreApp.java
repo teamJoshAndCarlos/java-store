@@ -19,7 +19,14 @@ public class StoreApp {
             if (option == 1) {
                 do {
                     itemNumber++;
-                    receipt += addToCart(itemNumber);
+                    System.out.println("What would you like to buy?");
+                    String item = input.next();
+                    System.out.println("How much does it cost?");
+                    int costOfItem = input.nextInt();
+                    System.out.println("How many");
+                    int numberOfItems = input.nextInt();
+                    receipt += addToCart(itemNumber, numberOfItems, costOfItem, item);
+                    total = finalTotal(numberOfItems, costOfItem);
                     System.out.println("Continue Shopping? [Y/N]");
                     ContinueShopping = input.next();
                 } while (ContinueShopping.equalsIgnoreCase("Y"));
@@ -48,17 +55,21 @@ public class StoreApp {
     }
 
 
-    public static String addToCart(int itemNumber) {
-        System.out.println("What would you like to buy?");
-        String item = input.next();
-        System.out.println("How much does it cost?");
-        int costOfItem = input.nextInt();
-        System.out.println("How many");
-        int numberOfItems = input.nextInt();
+    public static String addToCart(int itemNumber, int numberOfItems, int costOfItem, String item) {
+
+
+
         int total = numberOfItems * costOfItem;
         return (itemNumber + ") " + item + " x" + numberOfItems + " :$" + total + "\n");
 
     }
+    public static int finalTotal = (int numberOfItems, int costOfItem){
+        int total = 0;
+        int subtotal = numberOfItems * costOfItem;
+        return total += subtotal;
+
+    }
+
 
 //    public static String printReceipt() {
 //
