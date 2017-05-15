@@ -10,16 +10,29 @@ public class StoreApp {
 
         int option = input.nextInt();
 
-        if(option == 1){
-            System.out.println(addToCart());
 
-        } else if (option == 2) {
-            System.out.println("Print Receipt");
-        }else if(option == 3) {
-            System.out.println("Exit");
-        }else {
-            System.out.println("not valid");
-        }
+        String ContinueShopping = "";
+
+  do {
+      if(option == 1){
+          System.out.println(addToCart());
+          System.out.println("Continue Shopping? [Y/N]");
+          ContinueShopping = input.next();
+      } else if (option == 2) {
+          System.out.println("Print Receipt");
+      }else if(option == 3) {
+          System.out.println("Exit");
+      }else {
+          System.out.println("not valid");
+      }
+  }while (ContinueShopping.equalsIgnoreCase("Y"));
+
+//  if (ContinueShopping.equals("N")){
+//      System.out.println("Would you like to print your receipt? [Y/N]");
+//      int receipt = input.nextInt();
+//      System.out.println("Printing Receipt:" + addToCart());
+  }
+
 
     }
 
@@ -31,6 +44,7 @@ public class StoreApp {
         int costOfItem = input.nextInt();
         System.out.println("How many");
         int numberOfItems = input.nextInt();
-        return ("1) " + item + " x" + numberOfItems + "  :" + numberOfItems * costOfItem);
+        return ("1) " + item + " x" + numberOfItems + "  :$" + numberOfItems * costOfItem);
+
     }
 }
