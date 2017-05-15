@@ -26,14 +26,14 @@ public class StoreApp {
                     System.out.println("How many");
                     int numberOfItems = input.nextInt();
                     receipt += addToCart(itemNumber, numberOfItems, costOfItem, item);
-                    total = finalTotal(numberOfItems, costOfItem);
+                    total = finalTotal(numberOfItems, costOfItem, total);
                     System.out.println("Continue Shopping? [Y/N]");
                     ContinueShopping = input.next();
                 } while (ContinueShopping.equalsIgnoreCase("Y"));
             } else if (option == 2) {
                 System.out.println("Print Receipt");
                 System.out.println(receipt);
-                System.out.println("Total" + total);
+                System.out.println("Total: $" + total);
                 option = 3;
             } else if (option == 3) {
                 System.out.println("Exit");
@@ -42,7 +42,7 @@ public class StoreApp {
             }
 
         } while (option != 3);
-        System.out.println("Thank you come again!");
+        System.out.println("Thank you, come again!");
 
 
 //  if (ContinueShopping.equals("N")){
@@ -56,17 +56,14 @@ public class StoreApp {
 
 
     public static String addToCart(int itemNumber, int numberOfItems, int costOfItem, String item) {
-
-
-
         int total = numberOfItems * costOfItem;
-        return (itemNumber + ") " + item + " x" + numberOfItems + " :$" + total + "\n");
-
+        return (itemNumber + ") " + item + " @" + costOfItem + " x" + numberOfItems + " :$" + total + "\n");
     }
-    public static int finalTotal = (int numberOfItems, int costOfItem){
-        int total = 0;
+
+    public static int finalTotal(int numberOfItems, int costOfItem, int total){
         int subtotal = numberOfItems * costOfItem;
-        return total += subtotal;
+        int finalTotal = total + subtotal;
+        return finalTotal;
 
     }
 
