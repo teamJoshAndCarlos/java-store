@@ -9,6 +9,8 @@ public class StoreApp {
         int option;
         int itemNumber = 0;
         int total = 0;
+        System.out.println("Enter your Name");
+        String customerName = input.nextLine();
         do {
             System.out.println("Menu \n" +
                     "1) Sale \n" +
@@ -31,9 +33,24 @@ public class StoreApp {
                     ContinueShopping = input.next();
                 } while (ContinueShopping.equalsIgnoreCase("Y"));
             } else if (option == 2) {
-                System.out.println("Print Receipt");
+                System.out.println("Printing Receipt");
+                System.out.println("***************************");
+                System.out.println("         //////////");
+                System.out.println("        //         //");
+                System.out.println("       //           //  ");
+                System.out.println("      //             //  ");
+                System.out.println("     /////////        // ");
+                System.out.println("             //      // ");
+                System.out.println("              //    // ");
+                System.out.println("               //  //");
+                System.out.println("                 //  " );
+                System.out.println("       coolstore.com");
+                System.out.println("      San Antonio , TX");
+                System.out.println("-----------------------------");
+                System.out.println(customerName);
                 System.out.println(receipt);
                 System.out.println("Total: $" + total);
+                System.out.println("***************************");
                 option = 3;
             } else if (option == 3) {
                 System.out.println("Exit");
