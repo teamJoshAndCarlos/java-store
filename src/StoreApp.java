@@ -57,7 +57,7 @@ public class StoreApp {
 
     public static String addToCart(int itemNumber, int numberOfItems, int costOfItem, String item) {
         int total = numberOfItems * costOfItem;
-        return (itemNumber + ") " + item + " @" + costOfItem + " x" + numberOfItems + " :$" + total + "\n");
+        return String.format(itemNumber + ") %-10s@%-4dx%-3d:$%d\n",item , costOfItem, numberOfItems, total );
     }
 
     public static int finalTotal(int numberOfItems, int costOfItem, int total){
