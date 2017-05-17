@@ -31,9 +31,11 @@ public class InputValidation {
     public int getInt(int min, int max) {
         int input = scan.nextInt();
         if (input >= min && input <= max) {
+            System.out.println("Excellent. Number is WITHIN parameters");
             return input;
         } else {
-            return getInt();
+            System.out.println("Number is not within parameters. Choose another number.");
+            return getInt(min, max);
         }
     }
 
