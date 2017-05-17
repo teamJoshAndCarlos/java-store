@@ -43,17 +43,20 @@ public class InputValidation {
         return scan.nextInt();
     }
 
-    public double getDouble(double min, double max) {
+    public double getRangeDouble(double dmin, double dmax) {
         double input = scan.nextDouble();
-        if (input >= min && input <= max) {
+        if (input >= dmin && input <= dmax) {
+            System.out.println("Excellent. Number is WITHIN parameters");
             return input;
         } else {
-            return getDouble();
+            System.out.println("Number is not within parameters. Choose another number.");
+            return getRangeDouble(dmin, dmax);
         }
     }
 
     public double getDouble() {
         return scan.nextDouble();
+
 
     }
 
