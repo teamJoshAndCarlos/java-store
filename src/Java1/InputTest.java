@@ -37,6 +37,11 @@ public class InputTest {
         double doublenumber = RangeDouble.getRangeDouble(dmin, dmax);
         System.out.println(doublenumber);
 
+        InputValidation Double = new InputValidation();
+        System.out.println("Enter a any decimal number: ");
+        double anydoublenumber = Double.getDouble();
+        System.out.println(anydoublenumber);
+        System.out.println("Excellent decimal number. You are worthy.");
 
 
 
