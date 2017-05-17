@@ -8,7 +8,9 @@ public class StoreApp {
         String receipt = "";
         int option;
         int itemNumber = 0;
-        int total = 0;
+        double total = 0;
+        System.out.println("Enter your Name");
+        String customerName = input.nextLine();
         do {
             System.out.println("Menu \n" +
                     "1) Sale \n" +
@@ -20,10 +22,11 @@ public class StoreApp {
                 do {
                     itemNumber++;
                     System.out.println("What would you like to buy?");
-                    String item = input.next();
+                    String item = input.next();  // tried using .nextLine but my receipt only captures the enter for some reason.
+//                    input.nextLine(); // Remove the trailing enter
                     System.out.println("How much does it cost?");
-                    int costOfItem = input.nextInt();
-                    System.out.println("How many");
+                    double costOfItem = input.nextDouble();
+                    System.out.println("How many?");
                     int numberOfItems = input.nextInt();
                     receipt += addToCart(itemNumber, numberOfItems, costOfItem, item);
                     total = finalTotal(numberOfItems, costOfItem, total);
@@ -31,9 +34,26 @@ public class StoreApp {
                     ContinueShopping = input.next();
                 } while (ContinueShopping.equalsIgnoreCase("Y"));
             } else if (option == 2) {
-                System.out.println("Print Receipt");
+                System.out.println("Printing Receipt");
+                System.out.println("***************************");
+                System.out.println("     //////////////");
+                System.out.println("    //            ///");
+                System.out.println("   //              ///");
+                System.out.println("  //                ///");
+                System.out.println(" ////////////        ///");
+                System.out.println("           ///        ///");
+                System.out.println("            ///      ///");
+                System.out.println("             ///    ///");
+                System.out.println("              ///  ///");
+                System.out.println("                ///");
+                System.out.println("");
+                System.out.println("       coolstore.com");
+                System.out.println("      San Antonio, TX");
+                System.out.println("-----------------------------");
+                System.out.println("Customer: " + customerName);
                 System.out.println(receipt);
-                System.out.println("Total: $" + total);
+                System.out.printf("Total: $%.2f \n", total);
+                System.out.println("***************************");
                 option = 3;
             } else if (option == 3) {
                 System.out.println("Exit");
@@ -55,14 +75,14 @@ public class StoreApp {
     }
 
 
-    public static String addToCart(int itemNumber, int numberOfItems, int costOfItem, String item) {
-        int total = numberOfItems * costOfItem;
-        return (itemNumber + ") " + item + " @" + costOfItem + " x" + numberOfItems + " :$" + total + "\n");
+    public static String addToCart(int itemNumber, int numberOfItems, double costOfItem, String item) {
+        double total = numberOfItems * costOfItem;
+        return String.format(itemNumber + ") %-10s@%-6.2fx%-3d:$%.2f\n",item , costOfItem, numberOfItems, total );
     }
 
-    public static int finalTotal(int numberOfItems, int costOfItem, int total){
-        int subtotal = numberOfItems * costOfItem;
-        int finalTotal = total + subtotal;
+    public static double finalTotal(int numberOfItems, double costOfItem, double total){
+        double subtotal = numberOfItems * costOfItem;
+        double finalTotal = total + subtotal;
         return finalTotal;
 
     }
